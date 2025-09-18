@@ -1,51 +1,65 @@
+/* Overall Page & Font Styling */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #D0F0C0;
+    font-family: 'Lato', sans-serif; /* Changed to Lato for body text */
+    background: var(--gray-light); /* Muted light gray background */
+    color: #333333; /* Dark gray text color */
 }
 
+/* Sewa Mitra Section */
 .sewa-mitra-section {
     max-width: 1100px;
     margin: 0 auto;
     padding: 40px 20px 80px 20px;
-    background: #D0F0C0; 
-    color: rgb(224, 158, 158);
+    background: var(--gray-light); /* Match the body background */
+    color: #333333; /* Dark gray text color */
 }
 
+/* Header */
 .header {
     text-align: center;
-    font-size: 2.8rem;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif; /* Changed to Montserrat for headings */
     font-weight: 700;
-    color: rgb(5, 0, 0); /* whole header text stays white */
+    font-size: 2.5rem;
+    letter-spacing: 0; /* Adjusted letter spacing */
+    margin-bottom: 30px;
+    color: #0c4120; /* Dark gray for the whole header text */
     padding-bottom: 10px;
-    border-bottom: 3px solid #000000; /* green line */
+    border-bottom: 3px solid #92c6a3; /* Dark green line */
 }
 
+/* Highlighted text in the header */
 .header .highlight {
-    color: #254711;
-    text-shadow: #a47272; /* make "Sewa Mitra" green */
+    color: #1C4E2D; /* Dark green for "Sewa Mitra" */
+    text-shadow: none; /* Removed text shadow */
 }
 
+/* Features Grid Layout */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 35px 10px;
+    gap: 35px; /* Consistent gap */
 }
 
+/* Feature Card Styling */
 .feature {
-    background: rgba(255, 255, 255, 0.07);
+    background: #a9d5a1; /* Clean white background */
     padding: 28px 20px 24px 20px;
-    border-radius: 15px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+    border-radius: 12px; /* Softer, rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
     text-align: center;
     min-height: 270px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: transform 0.3s ease; /* Smooth hover effect */
 }
 
+.feature:hover {
+    transform: translateY(-5px); /* Lifts the card on hover */
+}
+
+/* Feature Icon */
 .feature-icon {
     height: 48px;
     width: 48px;
@@ -57,22 +71,27 @@ body {
     width: 100%;
 }
 
+/* Feature Title */
 .feature-title {
-    font-size: 1.18rem;
+    font-family: 'Lora', serif; /* Changed to Montserrat */
+    font-size: 1.5rem;
     margin: 8px 0 12px 0;
-    font-weight: bold;
-    color: #000000;
+    font-weight: 500; /* Lighter font weight for a clean look */
+    color: #2E2E2E; /* Dark gray */
     min-height: 46px;
 }
 
+/* Feature Description */
 .feature-desc {
-    color: #000000;
-    font-size: 1rem;
+    color: #000000; /* Slightly lighter text for readability */
+    font-size: 1.03rem;
+    font-family: 'Lora', serif;
     line-height: 1.5;
     margin: 0;
     min-height: 90px;
 }
 
+/* Responsive Design */
 @media (max-width: 900px) {
     .features-grid {
         grid-template-columns: 1fr 1fr;
