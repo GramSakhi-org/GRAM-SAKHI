@@ -1,0 +1,593 @@
+/* Root variables */
+:root {
+    --green-soft: #D0F0C0;
+    --green-mid: #91c788;
+    --green-dark: #2f5233;
+    --radius: 14px;
+    --shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Base styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: #f0f0f0; /* a light background for the body */
+}
+
+/* HEADER */
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 32px;
+    z-index: 10; /* Ensures header is always on top */
+}
+
+/* Brand */
+.brand span {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    /* Updated gradient for a more sophisticated, flowing look */
+    background: linear-gradient(135deg, #2f5233, #4a745c, #5c976f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(47, 82, 51, 0.7);
+    cursor: pointer;
+}
+
+/* Nav links */
+.nav-right a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 14px;
+    color: var(--green-dark);
+    padding: 8px 14px;
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+}
+.nav-right a:hover {
+    background: var(--green-soft);
+    color: var(--green-dark);
+}
+
+/* MAIN CONTENT BACKGROUND */
+.bg-wrapper {
+    position: relative;
+    width: 100%;
+    /* sets background image for this section only */
+    background: url("workers.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; /* keeps image in place on scroll */
+    padding-top: 1px; /* prevents margin collapse with main */
+}
+
+/* LIGHT OVERLAY */
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* This creates the translucent, light effect */
+    background: rgba(255, 255, 255, 0.7); /* 70% opaque white overlay */
+    z-index: 1;
+}
+
+/* Ensure content sits above overlay */
+main {
+    position: relative;
+    z-index: 2; /* places main content above the overlay */
+    max-width: 1000px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 40px 22px;
+}
+
+/* Slogan */
+.slogan {
+    background: rgba(255,255,255,0.75);
+    padding: 28px 22px;
+    border-radius: var(--radius);
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+}
+.slogan h2 {
+    font-size: 40px;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--green-mid), var(--green-dark));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1.3px;
+    margin: 0;
+}
+
+/* Language selector */
+/* Update the language selector */
+.lang-selector label {
+    font-weight: 600;
+    margin-right: 12px;
+    font-size: 30px; /* Increased font size */
+    color: var(--green-dark);
+}
+body main .question-text {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--green-dark);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    /* This applies the animation with vendor prefixes */
+    -webkit-animation: text-glow 2s infinite alternate;
+    animation: text-glow 2s infinite alternate;
+}
+
+.big-selector {
+    padding: 12px 20px; /* Increased padding */
+    font-size: 18px; /* Increased font size */
+    border: 2px solid var(--green-mid);
+    border-radius: var(--radius-small);
+    background-color: white;
+    box-shadow: var(--shadow);
+    appearance: none; /* Removes default dropdown arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+/* Style for the dropdown arrow */
+.big-selector {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="rgb(47, 82, 51)" d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px;
+    padding-right: 35px; /* Makes room for the icon */
+}
+
+/* Update the worker/seeker buttons to have the same gradient as the register button */
+.button-group .big-btn {
+    flex: 1;
+    max-width: 240px;
+    padding: 36px 18px;
+    border-radius: var(--radius);
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    /* This is the new, more appealing gradient */
+    background: linear-gradient(160deg, var(--green-mid), #65a87d, var(--green-dark));
+    color: #ffffff; /* Changed text color to white for visibility */
+    box-shadow: 0 0 15px rgba(145,199,136,0.6),
+                0 0 30px rgba(145,199,136,0.4);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-group .big-btn:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 0 20px rgba(145,199,136,0.7),
+                0 0 40px rgba(145,199,136,0.5);
+}
+
+/* Buttons */
+/* Ensure your CSS file has this exact code */
+.button-group {
+    display: flex;
+    justify-content: center; /* This is the key line to center the buttons */
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.big-btn {
+    flex: 1;
+    max-width: 240px;
+    padding: 36px 18px;
+    border-radius: var(--radius);
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(135deg, var(--green-soft), var(--green-mid));
+    color: var(--green-dark);
+    box-shadow: 0 0 70px rgba(208, 240, 192, 0.6),
+                0 0 30px rgba(145, 199, 136, 0.4);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+.big-btn:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 0 20px rgba(145,199,136,0.7),
+                0 0 40px rgba(145,199,136,0.5);
+}
+
+
+
+/*****FOR THE WORKER.HTML******/
+/* Root variables for consistent design */
+/* Root variables for consistent design */
+:root {
+    --green-soft: #d2e8c2;
+    --green-mid: #91c788;
+    --green-dark: #2f5233;
+    --gray-light: #f5f5f5;
+    --gray-medium: #ddd;
+    --radius-small: 8px;
+    --radius-large: 16px;
+    --shadow-subtle: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* -------------------- General & Body Styles -------------------- */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: var(--gray-light);
+    color: var(--green-dark);
+}
+
+/* -------------------- Header Section -------------------- */
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 32px;
+    z-index: 10;
+    box-shadow: var(--shadow-subtle);
+}
+
+.brand span {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    /* Updated gradient for a more sophisticated, flowing look */
+    background: linear-gradient(135deg, #2f5233, #4a745c, #5c976f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(47, 82, 51, 0.7);
+    cursor: pointer;
+}
+
+.nav-right a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 14px;
+    color: var(--green-dark);
+    padding: 8px 14px;
+    border-radius: var(--radius-small);
+    transition: all 0.3s ease;
+}
+
+/* Updated nav link hover state */
+.nav-right a:hover {
+    background: var(--green-soft);
+    color: var(--green-dark);
+}
+
+
+/* -------------------- Main Content & Form Layout -------------------- */
+main.form-page {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.form-wrapper {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-subtle);
+    max-width: 700px;
+    width: 100%;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--green-dark);
+    margin: 0 0 10px;
+}
+
+.form-header p {
+    color: #555;
+    font-size: 16px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--gray-medium);
+}
+
+.form-section h3 {
+    color: var(--green-mid);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.address-group .form-input {
+    margin-bottom: 10px;
+}
+.address-group .form-input:last-child {
+    margin-bottom: 0;
+}
+
+
+/* -------------------- Form Elements: Inputs & Textareas -------------------- */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--green-dark);
+    font-size: 17px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px;
+    border-radius: var(--radius-small);
+    border: 4px solid var(--gray-medium);
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Ensures padding doesn't affect total width */
+}
+
+/* Updated focus and hover for all inputs */
+.form-input:focus {
+    outline: none;
+    border-color: var(--green-mid);
+    /* Using box-shadow for the flowing gradient effect */
+    box-shadow: 0 0 0 3px rgba(145, 199, 136, 0.3),
+                0 0 10px rgba(145, 199, 136, 0.5);
+}
+
+
+/* -------------------- Skills Dropdown Styling -------------------- */
+.skills-details {
+    border: 4px solid var(--gray-medium); /* Changed from 1px to 2px */
+    border-radius: var(--radius-small);
+    padding: 12px;
+    margin-bottom: 20px;
+}
+
+summary {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    list-style: none; /* Hide the default arrow */
+    position: relative;
+    padding-right: 25px; /* Space for custom icon */
+    color: var(--green-dark);
+}
+
+/* Custom dropdown icon */
+summary::after {
+    content: '▼';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: var(--green-mid);
+    transition: transform 0.2s ease;
+}
+
+details[open] summary::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.checkbox-group {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    border: 2px solid var(--gray-medium);
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--gray-light);
+    font-size: 16px;
+}
+
+/* Updated hover state for checkboxes */
+.checkbox-container:hover {
+    border-color: var(--green-mid);
+    box-shadow: 0 0 10px rgba(145, 199, 136, 0.3);
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none; /* Hide the default checkbox */
+}
+
+/* Create custom large checkbox icon */
+.checkbox-container::before {
+    content: ' '; /* Use a regular space instead of the special character */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--gray-medium);
+    border-radius: 4px;
+    margin-right: 12px;
+    transition: all 0.2s ease;
+    background-color: #fff;
+}
+
+/* Updated checked state for checkboxes */
+.checkbox-container input[type="checkbox"]:checked::before {
+    background-color: var(--green-dark);
+    border-color: var(--green-dark);
+    content: '✔';
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+    background-color: var(--green-soft);
+    border-color: var(--green-dark);
+    box-shadow: 0 0 0 2px var(--green-soft);
+}
+
+/* -------------------- Buttons -------------------- */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.big-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: var(--radius-small);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.big-btn.reset-btn {
+    background: #e0e0e0;
+    color: #555;
+}
+
+.big-btn.reset-btn:hover {
+    background: #d4d4d4;
+}
+
+.big-btn[type="submit"] {
+    /* Updated gradient for a smoother, more appealing flow */
+    background: linear-gradient(160deg, var(--green-mid), #65a87d, var(--green-dark));
+    color: #ffffff;
+    box-shadow: var(--shadow-subtle);
+}
+
+.big-btn[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* -------------------- Responsive Design -------------------- */
+@media (max-width: 600px) {
+    .form-wrapper {
+        padding: 20px;
+    }
+    .button-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+
+/******this is the glowy effect of "are you a" word****/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Village Connect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <span>Gram Sakhi</span>
+        </div>
+        <div class="nav-right">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#docs">Documentation Section</a>
+            <a href="#legal">Legal Help</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+    </header>
+
+    <div class="bg-wrapper">
+        <div class="bg-overlay"></div>
+
+        <main>
+            <div class="slogan">
+                <h2>"Connecting Villages, Empowering Futures"</h2>
+            </div>
+            <div class="lang-selector">
+              <label for="lang">Choose Language:</label>
+               <select id="lang" class="big-selector">
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="kn">ಕನ್ನಡ</option>
+                <option value="mr">मराठी</option>
+               </select>
+            </div>
+
+            <h2 class="question-text">Are you a?</h2>
+
+
+            <div class="button-group">
+                <button class="big-btn"><span>Worker</span></button>
+                <button class="big-btn"><span>Seeker</span></button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+
+https://pikbest.com/video/an-organic-farm-adopting-regenerative-farming-methods-to-enhance-soil-vitality_10745671.html
