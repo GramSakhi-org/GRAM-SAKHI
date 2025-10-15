@@ -3,6 +3,7 @@
     --green-soft: #D0F0C0;
     --green-mid: #91c788;
     --green-dark: #315e36;
+    --accent-hsl: 46.82, 100%, 50%;
     --radius: 14px;
     --shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
@@ -61,12 +62,22 @@ header {
 .bg-wrapper {
     position: relative;
     width: 100%;
-    /* sets background image for this section only */
-    background: url("workers.jpg") no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed; /* keeps image in place on scroll */
-    padding-top: 1px; /* prevents margin collapse with main */
+    background: none; /* remove background image */
+    overflow: hidden; /* hide overflowing video edges */
+    padding-top: 1px; /* keep your original layout */
 }
+
+.bg-video {
+    position: absolute;  /* or fixed if you want it to stay in place on scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* fills the entire area */
+    z-index: 0;          /* behind overlay and text */
+    pointer-events: none; /* prevents blocking clicks */
+}
+
 
 /* LIGHT OVERLAY */
 .bg-overlay {
@@ -76,7 +87,7 @@ header {
     width: 100%;
     height: 100%;
     /* This creates the translucent, light effect */
-    background: rgba(255, 255, 255, 0.7); /* 70% opaque white overlay */
+    background: rgba(255, 255, 255, 0.6); /* 70% opaque white overlay */
     z-index: 1;
 }
 
@@ -91,23 +102,84 @@ main {
 }
 
 /* Slogan */
-.slogan {
-    background: rgba(255,255,255,0.75);
-    padding: 28px 22px;
-    border-radius: var(--radius);
-    margin-bottom: 40px;
-    box-shadow: var(--shadow);
+.hero {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('premium-village.jpg') center center/cover no-repeat;
+  /* Add a subtle dark gradient overlay that fades to transparent */
+  background-blend-mode: multiply;
+  
+  padding: 0 20px;
+  border-radius: 0;
 }
-.slogan h2 {
-    font-size: 40px;
-    font-weight: 700;
-    background: linear-gradient(90deg, var(--green-mid), var(--green-dark));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 1.3px;
-    margin: 0;
+
+.hero-content {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  color: #20381a; /* Dark greenish for premium but natural */
+  padding: 40px 30px;
+  text-align: left;
+  /* Glassmorphism effect */
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(24, 70, 22, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
+
+.hero-logo-title {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.hero-logo {
+  width: 80px;
+  height: auto;
+  filter: drop-shadow(0 2px 12px rgba(31, 70, 24, 0.2));
+}
+
+.app-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 0;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #4a745c, #2f5233);
+  
+  -webkit-background-clip: text; /* Chrome, Safari, newer browsers */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-size: 2.2rem;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0;
+  color: #315e36;
+  letter-spacing: 1.5px;
+}
+
+.hero p {
+  font-size: 1.18rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  color: #2a4b20;
+}
+
+
+
+
 
 /* Language selector */
 /* Update the language selector */
@@ -197,7 +269,7 @@ body main .question-text {
     cursor: pointer;
     border: none;
     background: linear-gradient(135deg, var(--green-soft), var(--green-mid));
-    color: var(--green-dark);
+    color: rgba(255,255,255,0.95);
     box-shadow: 0 0 70px rgba(208, 240, 192, 0.6),
                 0 0 30px rgba(145, 199, 136, 0.4);
     transition: all 0.35s ease;
